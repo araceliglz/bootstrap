@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BeautyPro</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background: linear-gradient(135deg,#ffffff,#ffffff);
+font-weight:300;
+}
+/* NAVBAR (barra navegacion) */
+.navbar{
+padding:15px 0;
+transition:0.4s;
+}
+.navbar.scrolled{
+background:#ffffff !important;
+box-shadow:0 5px 20px rgba(82, 28, 28, 0.4);
+}
+.navbar-brand{
+font-weight:bold;
+font-size:1.5rem;
+color:#311f14 !important;
+}
+.nav-link{
+margin-left:15px;
+font-weight:500;
+color:#311f14 !important;
+}
+/* HERO (parte inicial)*/
+.hero{
+background:url("img/descarga (12).jpg") center/cover no-repeat;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+position:relative;
+}
+.hero::before{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.55);
+}
+.hero-content{
+position:relative;
+z-index:2;
+}
+.hero p{
+font-size:1.6rem;
+font-style:italic;
+}
+.hero h1{
+font-size:65px;
+font-weight:500;
+}
+.hero .btn{
+padding:15px 45px;
+font-size:18px;
+font-weight:bold;
+border-radius:8px;
+background:linear-gradient(90deg,#ff6f91,#ffb199);
+border:none;
+transition:0.3s;
+}
+.hero .btn:hover{
+transform:scale(1.08);
+background:linear-gradient(90deg,#ffb199,#ff6f91);
+}
+/* SERVICES (parte servicios)*/
+.services{
+padding:110px 0;
+}
+.section-title{
+font-size:2.5rem;
+font-weight:700;
+margin-bottom:70px;
+}
+/* ICONOS */
+.icon-circle{
+width:100px;
+height:100px;
+border-radius:50%;
+background:linear-gradient(135deg,#ff6f91,#ffb199);
+display:flex;
+align-items:center;
+justify-content:center;
+margin:auto;
+color:white;
+font-size:40px;
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+/* CARDS */
+.service-card{
+border:none;
+padding:35px 25px;
+border-radius:18px;
+transition:0.4s;
+background:#ffeef2;
+}
+.service-card:hover{
+transform:translateY(-15px);
+box-shadow:0 20px 40px rgba(0,0,0,0.25);
+}
+.service-card h5{
+margin-top:25px;
+font-weight:bold;
+}
+.service-img{
+height:350px;
+object-fit:cover;
+border-radius:20px;
+}
+.service-box h3{
+font-weight:600;
+margin-bottom:20px;
+}
+.service-box p{
+margin-bottom:25px;
+font-size:17px;
+}
+.service-btn{
+background:linear-gradient(90deg,#ff6f91,#ffb199);
+border:none;
+padding:12px 35px;
+border-radius:8px;
+color:white;
+font-weight:500;
+transition:0.3s;
+}
+.service-btn:hover{
+transform:scale(1.08);
+background:linear-gradient(90deg,#ffb199,#ff6f91);
+}
+.services {
+  position: relative;
+  padding: 110px 0;
+  background: #fff0f5;
+}
+.services::after {
+  content:"";
+  display:block;
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:50px;
+  background:#fff;
+  border-bottom-left-radius:50% 20%;
+  border-bottom-right-radius:50% 20%;
+}
+/* FOOTER */
+footer {
+  background: linear-gradient(90deg, #ffb199, #ff6f91);
+  color: white;
+  padding: 15px 0; /* más delgado */
+  font-weight: 400;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  text-align: center;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+footer p{
+margin:0;
+}
+/*ICONS (redes sociales) */
+.social-icons i{
+font-size:22px;
+margin:0 10px;
+cursor:pointer;
+transition:0.3s;
+}
+.social-icons i:hover{
+color:#ff6f91;
+transform:scale(1.2);
+}
+/* ANIMACION */
+.fade-in{
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+.fade-in.show{
+opacity:1;
+transform:translateY(0);
+}
+.sobre-img{
+border-radius:20px;
+box-shadow:0 15px 35px rgba(0,0,0,0.2);
+transition:0.4s;
+}
+.sobre-img:hover{
+transform:scale(1.05);
+}
+.stats-number{
+font-size:2rem;
+font-weight:bold;
+color:#ff6f91;
+margin-bottom:5px;
+}
+</style>
+</head>
+<body>
+<!-- NAVBAR (html)-->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+<div class="container">
+<a class="navbar-brand" href="#">BeautyPro</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="menu">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item">
+<a class="nav-link" href="#inicio">INICIO</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="#servicios">SERVICIOS</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="#sobre">SOBRE NOSOTROS</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="#contacto">CONTACTO</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<!-- HERO -->
+<section class="hero" id="inicio">
+<div class="hero-content">
+<p>Descubre tu mejor versión</p>
+<h1>RESALTA TU BELLEZA</h1>
+<a href="#servicios" class="btn btn-lg mt-3">
+Descubre más
+</a>
+</div>
+</section>
+<section class="services" id="servicios">
+<div class="container">
+<h2 class="section-title text-center fade-in">Nuestros Servicios</h2>
+<!-- SERVICIO 1 -->
+<div class="row align-items-center mb-5 fade-in">
+<div class="col-md-6">
+<div id="carouselServicio1" class="carousel slide" data-bs-ride="carousel">
+<div class="carousel-inner">
+<div class="carousel-item active">
+<img src="img/descarga (17).jpg" class="d-block w-100 service-img">
+</div>
+<div class="carousel-item">
+<img src="img/Chic Cosmetics Corner.jpg" class="d-block w-100 service-img">
+</div>
+<div class="carousel-item">
+<img src="img/descarga (18).jpg" class="d-block w-100 service-img">
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="service-box">
+<h3>Maquillaje Social</h3>
+<p>
+Realzamos tu belleza para bodas, fiestas y eventos especiales con un estilo elegante y duradero.
+</p>
+<a href="#contacto" class="btn service-btn">
+Reservar cita
+</a>
+</div>
+</div>
+</div>
+<!-- SERVICIO 2 -->
+<div class="row align-items-center mb-5 fade-in">
+<div class="col-md-6 order-md-2">
+<div id="carouselServicio2" class="carousel slide" data-bs-ride="carousel">
+<div class="carousel-inner">
+<div class="carousel-item active">
+<img src="img/descarga (19).jpg" class="d-block w-100 service-img">
+</div>
+<div class="carousel-item">
+<img src="img/descarga (21).jpg" class="d-block w-100 service-img">
+</div>
+<div class="carousel-item">
+<img src="img/descarga (22).jpg" class="d-block w-100 service-img">
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6 order-md-1">
+<div class="service-box">
+<h3>Maquillaje Profesional</h3>
+<p>
+Maquillaje de alto nivel para modelos, sesiones fotográficas y producciones profesionales.
+</p>
+<a href="#contacto" class="btn service-btn">
+Reservar cita
+</a>
+</div>
+</div>
+</div>
+<!-- SERVICIO 3 -->
+<div class="row align-items-center fade-in">
+<div class="col-md-6">
+<div id="carouselServicio3" class="carousel slide" data-bs-ride="carousel">
+<div class="carousel-inner">
+<div class="carousel-item active">
+<img src="img/descarga (23).jpg" class="d-block w-100 service-img">
+</div>
+<div class="carousel-item">
+<img src="img/descarga (24).jpg" class="d-block w-100 service-img">
+</div>
+<div class="carousel-item">
+<img src="img/Hotel & Spa In London _ The Spa at 45 Park Lane.jpg" class="d-block w-100 service-img">
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="service-box">
+<h3>Cuidado Personal</h3>
+<p>
+Tratamientos especiales para resaltar tu belleza natural y cuidar tu piel.
+</p>
+<a href="#contacto" class="btn service-btn">
+Reservar cita
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SOBRE NOSOTROS MODERNO -->
+<section id="sobre" class="py-5 bg-light">
+<div class="container">
+<div class="row align-items-center">
+<!-- FOTO DEL EQUIPO / SALÓN -->
+<div class="col-md-6 fade-in">
+<img src="img/Gemini_Generated_Image_9wty5x9wty5x9wty.png" class="img-fluid sobre-img">
+</div>
+<!-- TEXTO Y ESTADÍSTICAS -->
+<div class="col-md-6 fade-in">
+<h2 class="section-title">Sobre Nosotros</h2>
+<p>
+En <strong>BeautyPro</strong> nos dedicamos a resaltar la belleza natural de cada persona.
+Ofrecemos servicios profesionales de maquillaje y cuidado personal para bodas,
+eventos y sesiones fotográficas.
+</p>
+<p>
+Nuestro objetivo es que cada cliente se sienta seguro, elegante y con su mejor versión.
+Trabajamos con productos de alta calidad y técnicas modernas.
+</p>
+<!-- ESTADÍSTICAS -->
+<div class="row text-center my-4">
+<div class="col-4">
+<h3 class="stats-number">5+</h3>
+<p>Años de experiencia</p>
+</div>
+<div class="col-4">
+<h3 class="stats-number">500+</h3>
+<p>Clientes satisfechos</p>
+</div>
+<div class="col-4">
+<h3 class="stats-number">1000+</h3>
+<p>Sesiones realizadas</p>
+</div>
+</div>
+<a href="#contacto" class="btn service-btn mt-3">
+Reservar cita
+</a>
+</div>
+</div>
+</div>
+</section>
+<section id="contacto" class="py-3 text-center">
+<div class="container">
+<h2 class="section-title">Contacto</h2>
+<div class="row justify-content-center">
+<div class="col-md-8">
+<div class="service-card p-4">
+<div class="icon-circle mb-3">
+<i class="fa-solid fa-address-book"></i>
+</div>
+<h5>Contáctanos</h5>
+<p>Reserva tu cita escribiendo al número:</p>
+<p><strong>+591 70000000</strong></p>
+<p>Síguenos en nuestras redes sociales</p>
+<div class="social-icons mt-2">
+<i class="fa-brands fa-instagram"></i>
+<i class="fa-brands fa-facebook"></i>
+<i class="fa-brands fa-tiktok"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FOOTER -->
+<footer>
+<p>© 2025 BeautyPro | Todos los derechos reservados</p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+<script>
+window.addEventListener("scroll",function(){
+const navbar=document.querySelector(".navbar");
+if(window.scrollY>50){
+navbar.classList.add("scrolled");
+}else{
+navbar.classList.remove("scrolled");
+}
+document.querySelectorAll(".fade-in").forEach(el=>{
+const top=el.getBoundingClientRect().top;
+if(top < window.innerHeight-100){
+el.classList.add("show");
+}
+});
+});
+</script>
+</body>
+</html>
